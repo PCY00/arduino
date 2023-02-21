@@ -2,7 +2,6 @@
 
 #include <ros.h>
 #include <std_msgs/String.h>
-#include <TimeLib.h>
 
 #include <Arduino.h>   // required before wiring_private.h
 #include "wiring_private.h" // pinPeripheral() function
@@ -71,11 +70,7 @@ void setup()  {
     Serial3.write('\r');
   #endif
 
-  while(!Ozone.begin(Ozone_IICAddress)) {
-    chatter.publish("Ozone error");
-    delay(1000);
-  }
-  
+  Ozone.begin(Ozone_IICAddress);
   Ozone.setModes(MEASURE_MODE_PASSIVE);
 }
  
@@ -84,7 +79,7 @@ void loop() {
   //A0 is likely to be used for something inside, so it is easy to change the value
   int Wind_val = analogRead(A1);
   float Wind_outvoltage = Wind_val * (5.0 / 1023.0);
-  int wind_speed = 6*outvoltage;
+  int wind_speed = 6*Wind_outvoltage;
 //==================================================================================
 // 5sec check
   if(now - past >= 5000){
