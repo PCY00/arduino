@@ -83,6 +83,7 @@ void loop(){
        float degree = i * 22.5;
        break;
     }
+  }
 //==================================================================================
 //SO2, NO2 data get
   while (SO2_serial.available() > 0) { // read from AGSM port, send to Serial port to interupt continuous output send 'c''/r' without line ending, may have to send more than once.
