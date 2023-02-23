@@ -27,7 +27,7 @@ void setup(){
   nh.initNode();
   nh.advertise(chatter);
   
-  Serial.begin(9600);
+  Serial.begin(57600);
   Serial1.begin(9600);        //NO2
   Serial2.begin(9600);        //SO2
   delay(1000);
