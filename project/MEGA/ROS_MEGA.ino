@@ -11,7 +11,7 @@ ros::NodeHandle  nh;
 std_msgs::String str;
 ros::Publisher chatter("str_data", &str);
 
-char buffer[30];
+char buffer[256];
 unsigned long past = 0;
 bool flag = false;
 char co_print[20];
@@ -31,13 +31,6 @@ void setup(){
   Serial1.begin(9600);        //NO2
   Serial2.begin(9600);        //SO2
   delay(1000);
-
-  #if ContinueMode
-    Serial1.write('c');
-    Serial1.write('\r');
-    Serial2.write('c');
-    Serial2.write('\r');
-  #endif
   
 }
 
