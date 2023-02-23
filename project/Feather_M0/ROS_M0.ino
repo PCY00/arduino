@@ -47,7 +47,7 @@ PMS pms3(Serial1);
 PMS::DATA data3;
 //==================================================================================
 // var
-char buffer[256];
+char buffer[40];
 unsigned long past = 0;
 bool flag = false;
 //pms var
@@ -127,7 +127,7 @@ void loop() {
     dtostrf(temp, 5, 2, temp_print);
     dtostrf(humi, 5, 2, humi_print);
     dtostrf(Ozone_ppm, 5, 3, Ozone_print);
-    sprintf(buffer,"%4d, %4d, %4d, %2d, %3d, %s", d1, d2, d3, temp_print, humi_print, Ozone_print);
+    sprintf(buffer,"%4d,%4d,%4d,%s,%s,%s", d1, d2, d3, temp_print, humi_print, Ozone_print);
     str.data = buffer;
     chatter.publish(&str);
 
