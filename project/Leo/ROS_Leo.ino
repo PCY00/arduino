@@ -1,3 +1,17 @@
+// 메모리 부족으로 코드 업로드 안됨,,
+/*
+700      -> without ROS
+2316     -> with ROS
+----------
+1616 -> ROS
+
+2560 의 75%(이상 넘어가면 이상발생) -> 1%당 25.60 * 75 -> 1920
+1920 - 1616 =  304
+
+PROGMEM 사용법
+https://blog.naver.com/PostView.naver?blogId=jamespiggy&logNo=221839136191&parentCategoryNo=&categoryNo=49&viewDate=&isShowPopularPosts=true&from=search
+
+*/
 #include <ros.h>
 #include <std_msgs/String.h>
 #include <TimeLib.h>
