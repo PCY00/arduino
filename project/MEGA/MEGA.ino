@@ -15,7 +15,7 @@ char degree_print[7];
 float direct[] = {3.84,1.98,2.25,0.41,0.45,0.32,0.90,0.62,1.40,1.19,3.08,2.93,4.62,4.04,4.33,3.43};
 
 void setup(){
-  Serial.begin(9600);
+  Serial.begin(57600);
   Serial1.begin(9600);        //NO2
   Serial2.begin(9600);        //SO2
   delay(1000);
