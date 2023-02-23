@@ -59,10 +59,8 @@ char humi_print[7];
 char Ozone_print[7];  //print Ozone string
 
 void setup() {
-  ros::NodeHandle  nh;
-
-  std_msgs::String str;
-  ros::Publisher chatter("str_data", &str);
+  nh.initNode();
+  nh.advertise(chatter);
   
   Serial1.begin(9600);
   Serial2.begin(9600);
