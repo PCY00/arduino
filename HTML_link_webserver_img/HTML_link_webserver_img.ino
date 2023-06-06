@@ -1,7 +1,7 @@
 #include <WiFi.h>
 
 const char* ssid = "olleh_WiFi_BB5F"; //같은 공유기에 연결되어 있어야 함.
-const char* password = "0000003353";  //비번도 마찬가지.
+const char* password = "////";  //비번도 마찬가지.
 
 WiFiServer server(80);                //보통 서버는 80포트를 이용함
 
