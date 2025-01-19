@@ -91,7 +91,7 @@ uint32_t read32(File &f){
 
 void setup(){
   Serial.begin(115200);
-  if(!SD.begin()){
+  if(!SD.begin(10, SPI, 8000000)){
     Serial.println("SD Card Mount Failed");
     return;
   }
@@ -105,10 +105,10 @@ void setup(){
 
 void loop(){
   displayBMP("/picture/1.bmp", 0, 0);
-  delay(5000);
+  delay(1000);
   displayBMP("/picture/2.bmp", 0, 0);
-  delay(5000);
+  delay(1000);
   displayBMP("/picture/3.bmp", 0, 0);
-  delay(5000);
+  delay(1000);
 }
 
