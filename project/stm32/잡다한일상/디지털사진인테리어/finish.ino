@@ -5,8 +5,8 @@
 #include "SD.h"
 
 // Wi-Fi 및 웹 서버 설정
-const char* ssid = "olleh_WiFi_BB5F";       // Wi-Fi SSID
-const char* password = "0000003353"; // Wi-Fi 비밀번호
+const char* ssid = "";       // Wi-Fi SSID
+const char* password = ""; // Wi-Fi 비밀번호
 WebServer server(80);
 
 // TFT 디스플레이 객체
@@ -147,8 +147,8 @@ String listSDFiles(String path = "/") {
   fileList += "<input type='submit' value='Display'>";
   fileList += "</form>";
   savePath = path;
-  Serial.print("move : ");
-  Serial.println(savePath);
+  //Serial.print("move : ");
+  //Serial.println(savePath);
   return fileList;
 }
 
@@ -230,7 +230,7 @@ void setup() {
 
   tft.init();
   tft.setSwapBytes(true);
-  tft.setRotation(0);
+  tft.setRotation(180);
   tft.fillScreen(TFT_BLACK);
 
   server.on("/", HTTP_GET, handleRoot);
