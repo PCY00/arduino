@@ -14,11 +14,9 @@ TFT_eSPI tft = TFT_eSPI();
 
 // SD 카드 및 디스플레이 CS 핀
 #define SD_CS 10
-#define TFT_CS 7
 
 String savePath = "";
 
-// BMP 디스플레이 함수
 void displayBMP(const char *filename, int16_t x, int16_t y) {
   File bmpFile;
   uint16_t bmpWidth, bmpHeight;
@@ -91,11 +89,14 @@ void displayBMP(const char *filename, int16_t x, int16_t y) {
     digitalWrite(SD_CS, HIGH);
     digitalWrite(TFT_CS, LOW);
 
+    // 좌우 반전 적용
     for (int col = 0; col < bmpWidth; col++) {
       uint8_t b = sdbuffer[col * 3];
       uint8_t g = sdbuffer[col * 3 + 1];
       uint8_t r = sdbuffer[col * 3 + 2];
-      lineBuffer[col] = tft.color565(r, g, b);
+      
+      // 좌우 반전된 위치에 저장
+      lineBuffer[bmpWidth - 1 - col] = tft.color565(r, g, b);
     }
 
     tft.pushImage(x, y + row, bmpWidth, 1, lineBuffer);
@@ -105,6 +106,7 @@ void displayBMP(const char *filename, int16_t x, int16_t y) {
   digitalWrite(TFT_CS, HIGH);  // 디스플레이 비활성화
   Serial.println("BMP displayed successfully!");
 }
+
 
 uint16_t read16(File &f) {
   uint16_t result;
@@ -200,6 +202,8 @@ void handleDisplay() {
     server.send(400, "text/plain", "No file selected");
   }
 }
+
+
 
 void setup() {
   Serial.begin(115200);
