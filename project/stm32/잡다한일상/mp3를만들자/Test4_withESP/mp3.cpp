@@ -72,3 +72,12 @@ void mp3::standby() {
 	sendCMD(EnterIntoStandby);
 }
 
+//---
+
+void mp3::querythecurrentstatus() {
+	sendCMD(QueryTheCurrentStatus);
+}
+
+void mp3::querythecurrentvolume() {
+	sendCMD(QueryTheCurrentVolume);
+}
