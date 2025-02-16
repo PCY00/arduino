@@ -1,5 +1,5 @@
 /*
-DFPlayer Mini 占쏙옙占싱브러占쏙옙
+DFPlayer Mini library v0.1
 */
 
 #ifndef mp3_h
@@ -71,6 +71,8 @@ public:
 	void specifyEQ(uint16_t EQ);
 	void specifyplaybackmode(uint16_t mode);
 	void standby();
+	void querythecurrentstatus();
+	void querythecurrentvolume();
 };
 
 #endif
